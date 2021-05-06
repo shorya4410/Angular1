@@ -1,0 +1,28 @@
+<body>
+  <h1 class="heading">My First Angular Project : {{title}}</h1><hr>
+<form id="form" [(ngModel)] = "form1" [ngModelOptions]="{standalone: true}">
+  <label for="name"></label>
+  <input type="text" class="form-control" id="name1" [(ngModel)]="empName" [ngModelOptions]="{standalone: true}" placeholder="Employee Name">&nbsp;&nbsp;
+  <label for="ID"></label>
+  <input type="number" class="form-control" id="ID1" [(ngModel)]="empID" [ngModelOptions]="{standalone: true}" placeholder="Employee ID">&nbsp;&nbsp;
+  <br><br><button (click)="submitval()" class="btn1">Submit</button>
+</form>
+
+<table class="table" >
+  <thead class="thead-light">
+  <tr>
+    <th>SNo.</th>
+    <th>Employee Name</th>
+    <th>Employee Number</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tr *ngFor="let element of mainarray; let j = index" [ngStyle]="{'background-color': (element.no%2==0) ? 'green' : 'red'}">
+    <td>{{j+1}}</td>
+    <td>{{element.name}}</td>
+    <td>{{element.no}}</td>
+    <td><button (click)="removeEmployee(j)" class="btnremove">Delete</button></td>
+  </tr>
+</table>
+</body>
